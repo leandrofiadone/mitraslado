@@ -1,0 +1,208 @@
+---
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/900.css";
+import "@fontsource/playfair-display/400-italic.css";
+import "@fontsource/playfair-display/700-italic.css";
+import "@fontsource/playfair-display/900-italic.css";
+import "@fontsource/space-grotesk/300.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/600.css";
+
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "MiTraslado — Buenos Aires",
+  description = "Ride-hailing CABA / AMBA con la identidad de acá. Rápido, seguro y hecho para moverse en Buenos Aires.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-filete-negro text-filete-crema font-body overflow-x-hidden">
+    <slot name="top-band" />
+    <nav
+      class="border-b border-filete-dorado/35 bg-filete-negro"
+      aria-label="Principal"
+    >
+      <div
+        class="max-w-6xl mx-auto flex justify-between items-center px-4 sm:px-6 md:px-8 py-3 md:py-4"
+      >
+        <a href="#" class="flex flex-col items-start gap-px shrink-0">
+          <span
+            class="font-display text-[0.7rem] md:text-[0.75rem] font-normal text-filete-dorado uppercase tracking-[0.18em]"
+            >Mi</span
+          >
+          <span
+            class="font-display text-[1.35rem] md:text-[1.6rem] font-black text-filete-crema leading-none tracking-[-0.01em]"
+            >Traslado<span class="text-filete-dorado">.</span></span
+          >
+        </a>
+
+        <ul
+          class="hidden md:flex list-none gap-6 lg:gap-7 items-center m-0 p-0"
+        >
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/80 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado underline underline-offset-[6px] decoration-filete-dorado/0 hover:decoration-filete-dorado"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/60 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado"
+              >Cómo funciona</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/60 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado"
+              >Asociarse</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/60 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado"
+              >Términos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/60 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado"
+              >Foro</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-filete-crema/60 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:text-filete-dorado"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+
+        <details class="md:hidden relative" id="mobile-menu">
+          <summary
+            class="list-none cursor-pointer p-2 text-filete-crema/80 hover:text-filete-dorado [&::-webkit-details-marker]:hidden"
+            aria-label="Abrir menú"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </summary>
+          <ul
+            class="absolute right-0 top-full mt-2 w-52 bg-filete-negro border border-filete-dorado/35 list-none m-0 p-2 z-50 flex flex-col gap-1"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/85 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/70 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Cómo funciona</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/70 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Asociarse</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/70 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Términos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/70 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Foro</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-3 py-2 text-filete-crema/70 no-underline text-[0.8rem] font-medium uppercase tracking-[0.06em] hover:bg-filete-ng2 hover:text-filete-dorado"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </details>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer class="border-t-[3px] border-filete-dorado">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 flex flex-col md:flex-row gap-3 md:gap-0 md:justify-between md:items-center text-center md:text-left"
+      >
+        <div class="font-display font-black text-[1rem] text-filete-dorado">
+          MiTraslado<span
+            class="text-filete-crema/35 font-body font-light text-[0.75rem] ml-2"
+            >· Buenos Aires</span
+          >
+        </div>
+        <div
+          class="text-[0.7rem] md:text-[0.72rem] text-filete-crema/40 tracking-[0.04em]"
+        >
+          © 2026 — todos los derechos reservados
+        </div>
+        <div class="flex justify-center md:justify-end gap-5 md:gap-6">
+          <a
+            href="#"
+            class="text-[0.72rem] text-filete-crema/50 no-underline tracking-[0.05em] hover:text-filete-dorado"
+            >Términos</a
+          >
+          <a
+            href="#"
+            class="text-[0.72rem] text-filete-crema/50 no-underline tracking-[0.05em] hover:text-filete-dorado"
+            >Privacidad</a
+          >
+          <a
+            href="#"
+            class="text-[0.72rem] text-filete-crema/50 no-underline tracking-[0.05em] hover:text-filete-dorado"
+            >Soporte</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

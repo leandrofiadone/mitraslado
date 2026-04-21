@@ -1,0 +1,61 @@
+---
+import PhoneMockup from "./PhoneMockup.tsx";
+---
+
+<section
+  class="px-4 sm:px-6 md:px-8 pt-6 md:pt-10 pb-10 md:pb-14 relative overflow-hidden"
+>
+  <div
+    class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-14"
+  >
+    <div
+      class="relative z-[2] order-2 lg:order-1 text-center lg:text-left w-full lg:max-w-[540px]"
+    >
+      <div
+        class="inline-flex items-center gap-2 bg-filete-dorado/10 border border-filete-dorado/35 px-4 py-[0.35rem] mb-5 md:mb-6"
+      >
+        <span class="w-[7px] h-[7px] bg-filete-verde rotate-45"></span>
+        <span
+          class="text-[0.65rem] md:text-[0.68rem] tracking-[0.18em] uppercase text-filete-dorado font-semibold"
+          >Buenos Aires · CABA · AMBA</span
+        >
+      </div>
+
+      <h1
+        class="font-display text-[2.4rem] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] font-black leading-[1] tracking-[-0.02em] mb-5"
+      >
+        Dejá de pagar<br />comisiones.<br /><span
+          class="italic text-filete-dorado">El viaje es tuyo.</span
+        >
+      </h1>
+
+      <p
+        class="text-[0.95rem] text-filete-crema/65 leading-[1.7] max-w-[420px] mx-auto lg:mx-0 mb-7 md:mb-8 font-light"
+      >
+        Suscripción fija mínima. Sin comisiones por viaje. El pasajero te paga
+        en el acto — efectivo, Mercado Pago o tarjeta.
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+      >
+        <a
+          href="#asociarse"
+          class="inline-block bg-filete-rojo text-filete-crema border-[1.5px] border-filete-dorado px-7 py-[0.85rem] font-body text-[0.85rem] font-semibold tracking-[0.07em] uppercase cursor-pointer hover:bg-[#A01015] no-underline text-center"
+          >Asociate ahora</a
+        >
+        <a
+          href="#como-funciona"
+          class="inline-block bg-transparent text-filete-crema border-[1.5px] border-filete-crema/25 px-7 py-[0.85rem] font-body text-[0.85rem] font-medium tracking-[0.06em] uppercase cursor-pointer hover:border-filete-dorado hover:text-filete-dorado no-underline text-center"
+          >Cómo funciona</a
+        >
+      </div>
+    </div>
+
+    <div
+      class="flex justify-center items-center relative z-[2] order-1 lg:order-2 shrink-0"
+    >
+      <PhoneMockup client:load />
+    </div>
+  </div>
+</section>

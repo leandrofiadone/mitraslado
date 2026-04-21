@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiTraslado — Buenos Aires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --r:#C8181E; --v:#1A6B2F; --d:#D4A017; --a:#1B3D8F;
+  --cr:#FDF6E3; --ng:#120E07; --ng2:#1C1609; --ng3:#251D0B;
+  --tc:#9B3A1A; --dm:rgba(212,160,23,0.15); --ds:rgba(212,160,23,0.35);
+}
+body{background:var(--ng);color:var(--cr);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;}
+
+.cenefa-top{background:var(--r);padding:0;overflow:hidden;height:32px;display:flex;align-items:center;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid var(--ds);background:var(--ng);}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:1px;}
+.brand-mi{font-family:'Playfair Display',serif;font-size:0.75rem;font-weight:400;color:var(--d);letter-spacing:0.18em;text-transform:uppercase;}
+.brand-traslado{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--cr);letter-spacing:-0.01em;line-height:1;}
+.brand-traslado span{color:var(--d);}
+nav ul{list-style:none;display:flex;gap:1.75rem;align-items:center;}
+nav a{color:rgba(253,246,227,0.6);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;}
+nav a:hover{color:var(--d);}
+.nav-dl{background:var(--r);color:var(--cr)!important;padding:0.5rem 1.25rem;border:1.5px solid var(--d);font-weight:600!important;letter-spacing:0.08em;}
+
+.hero{display:grid;grid-template-columns:1fr 420px;min-height:92vh;align-items:center;padding:2rem 2rem 3rem;gap:1rem;position:relative;overflow:hidden;}
+.hero-left{z-index:2;}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,0.1);border:1px solid var(--ds);padding:0.35rem 1rem;margin-bottom:1.5rem;}
+.pill-dot{width:7px;height:7px;background:var(--v);transform:rotate(45deg);}
+.pill span{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--d);font-weight:600;}
+
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,3.8rem);font-weight:900;line-height:1.0;letter-spacing:-0.02em;margin-bottom:1.25rem;}
+h1 .it{font-style:italic;color:var(--d);}
+h1 .rd{color:var(--r);}
+
+.sub{font-size:0.95rem;color:rgba(253,246,227,0.6);line-height:1.7;max-width:400px;margin-bottom:2rem;font-weight:300;}
+.btns{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.btn-r{background:var(--r);color:var(--cr);border:1.5px solid var(--d);padding:0.8rem 1.75rem;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;}
+.btn-r:hover{background:#A01015;}
+.btn-o{background:transparent;color:var(--cr);border:1.5px solid rgba(253,246,227,0.25);padding:0.8rem 1.75rem;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;}
+.btn-o:hover{border-color:var(--d);color:var(--d);}
+
+.hero-right{display:flex;justify-content:center;align-items:center;z-index:2;}
+.phone-wrap{position:relative;}
+.phone{width:248px;height:504px;background:var(--ng2);border:2px solid var(--d);overflow:hidden;position:relative;}
+.ph-header{background:var(--r);padding:0.65rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--d);}
+.ph-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--cr);}
+.ph-logo em{font-style:italic;color:var(--d);}
+.ph-time{font-size:0.6rem;color:rgba(253,246,227,0.7);letter-spacing:0.08em;}
+.ph-map{height:195px;background:var(--ng3);position:relative;overflow:hidden;}
+.ph-body{padding:0.85rem;}
+.dest-row{display:flex;align-items:center;gap:8px;background:rgba(253,246,227,0.04);border:1px solid rgba(212,160,23,0.2);padding:0.5rem 0.75rem;margin-bottom:0.6rem;}
+.dest-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dest-dot.orig{background:var(--d);}
+.dest-dot.dest{background:var(--r);}
+.dest-text{font-size:0.65rem;color:rgba(253,246,227,0.7);}
+.dest-val{font-size:0.7rem;color:var(--cr);font-weight:600;}
+.ride-opts{margin-top:0.6rem;}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0.75rem;margin-bottom:0.4rem;border:1px solid rgba(212,160,23,0.18);}
+.opt.sel{border-color:var(--d);background:rgba(212,160,23,0.07);}
+.opt-l{display:flex;flex-direction:column;gap:2px;}
+.opt-name{font-size:0.68rem;font-weight:600;color:var(--cr);letter-spacing:0.04em;}
+.opt-eta{font-size:0.58rem;color:rgba(253,246,227,0.5);}
+.opt-price{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--d);}
+.ph-confirm{width:100%;background:var(--r);border:1px solid var(--d);color:var(--cr);font-family:'Space Grotesk',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem;cursor:pointer;margin-top:0.5rem;}
+.corner{position:absolute;width:20px;height:20px;border-color:var(--d);border-style:solid;z-index:10;}
+.corner.tl{top:-1px;left:-1px;border-width:3px 0 0 3px;}
+.corner.tr{top:-1px;right:-1px;border-width:3px 3px 0 0;}
+.corner.bl{bottom:-1px;left:-1px;border-width:0 0 3px 3px;}
+.corner.br{bottom:-1px;right:-1px;border-width:0 3px 3px 0;}
+
+.cenefa-mid{height:28px;background:var(--ng);overflow:hidden;}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--d);border-bottom:3px solid var(--d);}
+.stat{padding:1.75rem 2rem;border-right:1px solid rgba(212,160,23,0.2);text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--d);line-height:1;}
+.stat-n sup{font-size:1.4rem;}
+.stat-l{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(253,246,227,0.4);margin-top:0.3rem;}
+
+.feats-wrap{padding:3.5rem 2rem;}
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:0.85rem;}
+.rombo{width:9px;height:9px;background:var(--r);transform:rotate(45deg);flex-shrink:0;}
+.sec-tag{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--d);font-weight:600;}
+.sec-line{flex:1;height:1px;background:rgba(212,160,23,0.25);}
+.rombo2{width:9px;height:9px;background:var(--v);transform:rotate(45deg);flex-shrink:0;}
+h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;line-height:1.1;letter-spacing:-0.01em;margin-bottom:2.5rem;}
+h2 em{font-style:italic;color:var(--d);}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,160,23,0.18);}
+.feat{background:var(--ng);padding:1.5rem;transition:background 0.2s;}
+.feat:hover{background:var(--ng3);}
+.feat-top{display:flex;align-items:center;gap:8px;margin-bottom:0.75rem;}
+.feat-ico{width:28px;height:28px;background:var(--r);display:flex;align-items:center;justify-content:center;transform:rotate(45deg);flex-shrink:0;}
+.feat-ico svg{width:14px;height:14px;stroke:var(--cr);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:rotate(-45deg);}
+.feat-h{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--cr);}
+.feat-p{font-size:0.8rem;color:rgba(253,246,227,0.55);line-height:1.6;font-weight:300;}
+
+.cond{margin:0 2rem 3.5rem;border:2.5px solid var(--d);padding:0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.cond-l{padding:2.5rem;background:var(--ng2);}
+.cond-r{padding:2.5rem;background:var(--ng3);border-left:1px solid rgba(212,160,23,0.25);}
+.cond h3{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;line-height:1.1;margin-bottom:0.85rem;}
+.cond h3 em{font-style:italic;color:var(--d);}
+.cond p{font-size:0.85rem;color:rgba(253,246,227,0.55);line-height:1.65;font-weight:300;margin-bottom:1.5rem;}
+.earn-lbl{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(253,246,227,0.4);margin-bottom:0.3rem;}
+.earn-amt{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--d);line-height:1;}
+.earn-sub{font-size:0.7rem;color:rgba(253,246,227,0.35);margin-bottom:1.25rem;}
+.bars{display:flex;gap:5px;align-items:flex-end;height:60px;}
+.bar{flex:1;background:rgba(212,160,23,0.15);}
+.bar.hi{background:var(--d);}
+.bar.md{background:rgba(212,160,23,0.5);}
+
+footer{border-top:3px solid var(--d);padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+.foot-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:var(--d);}
+.foot-brand span{color:rgba(253,246,227,0.35);font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:0.75rem;margin-left:0.5rem;}
+.foot-copy{font-size:0.72rem;color:rgba(253,246,227,0.28);letter-spacing:0.04em;}
+.foot-links{display:flex;gap:1.5rem;}
+.foot-links a{font-size:0.72rem;color:rgba(253,246,227,0.35);text-decoration:none;letter-spacing:0.05em;}
+.foot-links a:hover{color:var(--d);}
+</style>
+</head>
+<body>
+
+<div class="cenefa-top">
+  <svg width="100%" height="32" viewBox="0 0 680 32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="680" height="32" fill="#C8181E"/>
+    <path d="M0 16 Q8.5 6 17 16 Q25.5 26 34 16 Q42.5 6 51 16 Q59.5 26 68 16 Q76.5 6 85 16 Q93.5 26 102 16 Q110.5 6 119 16 Q127.5 26 136 16 Q144.5 6 153 16 Q161.5 26 170 16 Q178.5 6 187 16 Q195.5 26 204 16 Q212.5 6 221 16 Q229.5 26 238 16 Q246.5 6 255 16 Q263.5 26 272 16 Q280.5 6 289 16 Q297.5 26 306 16 Q314.5 6 323 16 Q331.5 26 340 16 Q348.5 6 357 16 Q365.5 26 374 16 Q382.5 6 391 16 Q399.5 26 408 16 Q416.5 6 425 16 Q433.5 26 442 16 Q450.5 6 459 16 Q467.5 26 476 16 Q484.5 6 493 16 Q501.5 26 510 16 Q518.5 6 527 16 Q535.5 26 544 16 Q552.5 6 561 16 Q569.5 26 578 16 Q586.5 6 595 16 Q603.5 26 612 16 Q620.5 6 629 16 Q637.5 26 646 16 Q654.5 6 663 16 Q671.5 26 680 16" stroke="#D4A017" stroke-width="2" fill="none"/>
+    <path d="M0 22 Q8.5 12 17 22 Q25.5 32 34 22 Q42.5 12 51 22 Q59.5 32 68 22 Q76.5 12 85 22 Q93.5 32 102 22 Q110.5 12 119 22 Q127.5 32 136 22 Q144.5 12 153 22 Q161.5 32 170 22 Q178.5 12 187 22 Q195.5 32 204 22 Q212.5 12 221 22 Q229.5 32 238 22 Q246.5 12 255 22 Q263.5 32 272 22 Q280.5 12 289 22 Q297.5 32 306 22 Q314.5 12 323 22 Q331.5 32 340 22 Q348.5 12 357 22 Q365.5 32 374 22 Q382.5 12 391 22 Q399.5 32 408 22 Q416.5 12 425 22 Q433.5 32 442 22 Q450.5 12 459 22 Q467.5 32 476 22 Q484.5 12 493 22 Q501.5 32 510 22 Q518.5 12 527 22 Q535.5 32 544 22 Q552.5 12 561 22 Q569.5 32 578 22 Q586.5 12 595 22 Q603.5 32 612 22 Q620.5 12 629 22 Q637.5 32 646 22 Q654.5 12 663 22 Q671.5 32 680 22" stroke="#FDF6E3" stroke-width="1" fill="none" opacity="0.4"/>
+    <g fill="#D4A017">
+      <rect x="15" y="14" width="4" height="4" transform="rotate(45 17 16)"/>
+      <rect x="49" y="14" width="4" height="4" transform="rotate(45 51 16)"/>
+      <rect x="83" y="14" width="4" height="4" transform="rotate(45 85 16)"/>
+      <rect x="117" y="14" width="4" height="4" transform="rotate(45 119 16)"/>
+      <rect x="151" y="14" width="4" height="4" transform="rotate(45 153 16)"/>
+      <rect x="185" y="14" width="4" height="4" transform="rotate(45 187 16)"/>
+      <rect x="219" y="14" width="4" height="4" transform="rotate(45 221 16)"/>
+      <rect x="253" y="14" width="4" height="4" transform="rotate(45 255 16)"/>
+      <rect x="287" y="14" width="4" height="4" transform="rotate(45 289 16)"/>
+      <rect x="321" y="14" width="4" height="4" transform="rotate(45 323 16)"/>
+      <rect x="355" y="14" width="4" height="4" transform="rotate(45 357 16)"/>
+      <rect x="389" y="14" width="4" height="4" transform="rotate(45 391 16)"/>
+      <rect x="423" y="14" width="4" height="4" transform="rotate(45 425 16)"/>
+      <rect x="457" y="14" width="4" height="4" transform="rotate(45 459 16)"/>
+      <rect x="491" y="14" width="4" height="4" transform="rotate(45 493 16)"/>
+      <rect x="525" y="14" width="4" height="4" transform="rotate(45 527 16)"/>
+      <rect x="559" y="14" width="4" height="4" transform="rotate(45 561 16)"/>
+      <rect x="593" y="14" width="4" height="4" transform="rotate(45 595 16)"/>
+      <rect x="627" y="14" width="4" height="4" transform="rotate(45 629 16)"/>
+      <rect x="661" y="14" width="4" height="4" transform="rotate(45 663 16)"/>
+    </g>
+  </svg>
+</div>
+
+<nav>
+  <div class="brand">
+    <span class="brand-mi">Mi</span>
+    <span class="brand-traslado">Traslado<span>.</span></span>
+  </div>
+  <ul>
+    <li><a href="#">Viajes</a></li>
+    <li><a href="#">Conductores</a></li>
+    <li><a href="#">Empresas</a></li>
+    <li><a href="#" class="nav-dl">Descargar</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="pill"><div class="pill-dot"></div><span>Buenos Aires · CABA · AMBA</span></div>
+    <h1>Tu ciudad.<br>Tu viaje.<br><span class="it">Tu traslado.</span></h1>
+    <p class="sub">Rápido, seguro y hecho para moverse en Buenos Aires. Desde Recoleta hasta La Matanza — con la identidad de acá.</p>
+    <div class="btns">
+      <button class="btn-r">Pedí tu viaje</button>
+      <button class="btn-o">Manejá con nosotros</button>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phone-wrap">
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+      <div class="phone">
+        <div class="ph-header">
+          <span class="ph-logo">Mi<em>Traslado</em></span>
+          <span class="ph-time">CABA · 21:34</span>
+        </div>
+        <div class="ph-map">
+          <svg width="248" height="195" viewBox="0 0 248 195" xmlns="http://www.w3.org/2000/svg">
+            <rect width="248" height="195" fill="#1C1609"/>
+            <g stroke="#2E2210" stroke-width="7" fill="none">
+              <line x1="0" y1="49" x2="248" y2="49"/><line x1="0" y1="98" x2="248" y2="98"/>
+              <line x1="0" y1="147" x2="248" y2="147"/><line x1="50" y1="0" x2="50" y2="195"/>
+              <line x1="100" y1="0" x2="100" y2="195"/><line x1="150" y1="0" x2="150" y2="195"/>
+              <line x1="200" y1="0" x2="200" y2="195"/>
+            </g>
+            <g stroke="#3A2C14" stroke-width="2" fill="none">
+              <line x1="0" y1="24" x2="248" y2="24"/><line x1="0" y1="73" x2="248" y2="73"/>
+              <line x1="0" y1="122" x2="248" y2="122"/><line x1="0" y1="171" x2="248" y2="171"/>
+              <line x1="25" y1="0" x2="25" y2="195"/><line x1="75" y1="0" x2="75" y2="195"/>
+              <line x1="125" y1="0" x2="125" y2="195"/><line x1="175" y1="0" x2="175" y2="195"/>
+              <line x1="225" y1="0" x2="225" y2="195"/>
+            </g>
+            <rect x="30" y="55" width="34" height="20" fill="#251D0B" stroke="#3A2C14" stroke-width="1"/>
+            <rect x="108" y="30" width="28" height="16" fill="#251D0B" stroke="#3A2C14" stroke-width="1"/>
+            <rect x="158" y="105" width="40" height="22" fill="#251D0B" stroke="#3A2C14" stroke-width="1"/>
+            <rect x="60" y="130" width="30" height="18" fill="#251D0B" stroke="#3A2C14" stroke-width="1"/>
+            <path d="M38 158 L38 98 L100 98 L100 49 L175 49 L175 116" stroke="#D4A017" stroke-width="2.5" fill="none" stroke-dasharray="7 3"/>
+            <circle cx="38" cy="158" r="7" fill="#D4A017"/>
+            <circle cx="38" cy="158" r="13" fill="none" stroke="#D4A017" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="175" cy="116" r="7" fill="#C8181E"/>
+            <circle cx="175" cy="116" r="13" fill="none" stroke="#C8181E" stroke-width="1.5" opacity="0.3"/>
+            <g transform="translate(90,86)">
+              <rect x="-14" y="-9" width="28" height="18" fill="#1A6B2F" rx="2"/>
+              <text x="0" y="4" text-anchor="middle" font-size="7" fill="#FDF6E3" font-weight="700" font-family="Space Grotesk,sans-serif">4 min</text>
+            </g>
+          </svg>
+        </div>
+        <div class="ph-body">
+          <div class="dest-row">
+            <div class="dest-dot orig"></div>
+            <div><div class="dest-text">Origen</div><div class="dest-val">Av. Corrientes 1500</div></div>
+          </div>
+          <div class="dest-row">
+            <div class="dest-dot dest"></div>
+            <div><div class="dest-text">Destino</div><div class="dest-val">Palermo Soho</div></div>
+          </div>
+          <div class="ride-opts">
+            <div class="opt">
+              <div class="opt-l"><span class="opt-name">Estándar</span><span class="opt-eta">4 min · 3.8 km</span></div>
+              <span class="opt-price">$2.800</span>
+            </div>
+            <div class="opt sel">
+              <div class="opt-l"><span class="opt-name">Plus ✦</span><span class="opt-eta">6 min · premium</span></div>
+              <span class="opt-price">$3.600</span>
+            </div>
+          </div>
+          <button class="ph-confirm">Confirmar traslado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cenefa-mid">
+  <svg width="100%" height="28" viewBox="0 0 680 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="680" height="28" fill="#120E07"/>
+    <line x1="0" y1="14" x2="680" y2="14" stroke="#D4A017" stroke-width="1" stroke-dasharray="3 5"/>
+    <path d="M0 14 Q5.5 5 11 14 Q16.5 23 22 14 Q27.5 5 33 14 Q38.5 23 44 14 Q49.5 5 55 14 Q60.5 23 66 14 Q71.5 5 77 14 Q82.5 23 88 14 Q93.5 5 99 14 Q104.5 23 110 14 Q115.5 5 121 14 Q126.5 23 132 14 Q137.5 5 143 14 Q148.5 23 154 14 Q159.5 5 165 14 Q170.5 23 176 14 Q181.5 5 187 14 Q192.5 23 198 14 Q203.5 5 209 14 Q214.5 23 220 14 Q225.5 5 231 14 Q236.5 23 242 14 Q247.5 5 253 14 Q258.5 23 264 14 Q269.5 5 275 14 Q280.5 23 286 14 Q291.5 5 297 14 Q302.5 23 308 14 Q313.5 5 319 14 Q324.5 23 330 14 Q335.5 5 341 14 Q346.5 23 352 14 Q357.5 5 363 14 Q368.5 23 374 14 Q379.5 5 385 14 Q390.5 23 396 14 Q401.5 5 407 14 Q412.5 23 418 14 Q423.5 5 429 14 Q434.5 23 440 14 Q445.5 5 451 14 Q456.5 23 462 14 Q467.5 5 473 14 Q478.5 23 484 14 Q489.5 5 495 14 Q500.5 23 506 14 Q511.5 5 517 14 Q522.5 23 528 14 Q533.5 5 539 14 Q544.5 23 550 14 Q555.5 5 561 14 Q566.5 23 572 14 Q577.5 5 583 14 Q588.5 23 594 14 Q599.5 5 605 14 Q610.5 23 616 14 Q621.5 5 627 14 Q632.5 23 638 14 Q643.5 5 649 14 Q654.5 23 660 14 Q665.5 5 671 14 Q676.5 23 682 14" stroke="#1A6B2F" stroke-width="1.5" fill="none"/>
+    <g fill="#C8181E">
+      <circle cx="22" cy="14" r="2.5"/><circle cx="66" cy="14" r="2.5"/><circle cx="110" cy="14" r="2.5"/>
+      <circle cx="154" cy="14" r="2.5"/><circle cx="198" cy="14" r="2.5"/><circle cx="242" cy="14" r="2.5"/>
+      <circle cx="286" cy="14" r="2.5"/><circle cx="330" cy="14" r="2.5"/><circle cx="374" cy="14" r="2.5"/>
+      <circle cx="418" cy="14" r="2.5"/><circle cx="462" cy="14" r="2.5"/><circle cx="506" cy="14" r="2.5"/>
+      <circle cx="550" cy="14" r="2.5"/><circle cx="594" cy="14" r="2.5"/><circle cx="638" cy="14" r="2.5"/>
+    </g>
+  </svg>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">52<sup>k</sup></div><div class="stat-l">viajes completados</div></div>
+  <div class="stat"><div class="stat-n">14<sup>k</sup></div><div class="stat-l">conductores activos</div></div>
+  <div class="stat"><div class="stat-n">4<sup>.8</sup></div><div class="stat-l">calificación promedio</div></div>
+</div>
+
+<div class="cenefa-mid">
+  <svg width="100%" height="28" viewBox="0 0 680 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="680" height="28" fill="#120E07"/>
+    <path d="M0 14 Q8.5 4 17 14 Q25.5 24 34 14 Q42.5 4 51 14 Q59.5 24 68 14 Q76.5 4 85 14 Q93.5 24 102 14 Q110.5 4 119 14 Q127.5 24 136 14 Q144.5 4 153 14 Q161.5 24 170 14 Q178.5 4 187 14 Q195.5 24 204 14 Q212.5 4 221 14 Q229.5 24 238 14 Q246.5 4 255 14 Q263.5 24 272 14 Q280.5 4 289 14 Q297.5 24 306 14 Q314.5 4 323 14 Q331.5 24 340 14 Q348.5 4 357 14 Q365.5 24 374 14 Q382.5 4 391 14 Q399.5 24 408 14 Q416.5 4 425 14 Q433.5 24 442 14 Q450.5 4 459 14 Q467.5 24 476 14 Q484.5 4 493 14 Q501.5 24 510 14 Q518.5 4 527 14 Q535.5 24 544 14 Q552.5 4 561 14 Q569.5 24 578 14 Q586.5 4 595 14 Q603.5 24 612 14 Q620.5 4 629 14 Q637.5 24 646 14 Q654.5 4 663 14 Q671.5 24 680 14" stroke="#9B3A1A" stroke-width="1.5" fill="none"/>
+    <path d="M0 14 Q8.5 24 17 14 Q25.5 4 34 14 Q42.5 24 51 14 Q59.5 4 68 14 Q76.5 24 85 14 Q93.5 4 102 14 Q110.5 24 119 14 Q127.5 4 136 14 Q144.5 24 153 14 Q161.5 4 170 14 Q178.5 24 187 14 Q195.5 4 204 14 Q212.5 24 221 14 Q229.5 4 238 14 Q246.5 24 255 14 Q263.5 4 272 14 Q280.5 24 289 14 Q297.5 4 306 14 Q314.5 24 323 14 Q331.5 4 340 14 Q348.5 24 357 14 Q365.5 4 374 14 Q382.5 24 391 14 Q399.5 4 408 14 Q416.5 24 425 14 Q433.5 4 442 14 Q450.5 24 459 14 Q467.5 4 476 14 Q484.5 24 493 14 Q501.5 4 510 14 Q518.5 24 527 14 Q535.5 4 544 14 Q552.5 24 561 14 Q569.5 4 578 14 Q586.5 24 595 14 Q603.5 4 612 14 Q620.5 24 629 14 Q637.5 4 646 14 Q654.5 24 663 14 Q671.5 4 680 14" stroke="#D4A017" stroke-width="1" fill="none" opacity="0.5"/>
+    <g fill="#1A6B2F">
+      <rect x="15" y="12" width="4" height="4" transform="rotate(45 17 14)"/>
+      <rect x="83" y="12" width="4" height="4" transform="rotate(45 85 14)"/>
+      <rect x="151" y="12" width="4" height="4" transform="rotate(45 153 14)"/>
+      <rect x="219" y="12" width="4" height="4" transform="rotate(45 221 14)"/>
+      <rect x="287" y="12" width="4" height="4" transform="rotate(45 289 14)"/>
+      <rect x="355" y="12" width="4" height="4" transform="rotate(45 357 14)"/>
+      <rect x="423" y="12" width="4" height="4" transform="rotate(45 425 14)"/>
+      <rect x="491" y="12" width="4" height="4" transform="rotate(45 493 14)"/>
+      <rect x="559" y="12" width="4" height="4" transform="rotate(45 561 14)"/>
+      <rect x="627" y="12" width="4" height="4" transform="rotate(45 629 14)"/>
+    </g>
+  </svg>
+</div>
+
+<section class="feats-wrap">
+  <div class="sec-head">
+    <div class="rombo"></div>
+    <span class="sec-tag">Por qué MiTraslado</span>
+    <div class="sec-line"></div>
+    <div class="rombo2"></div>
+  </div>
+  <h2>Hecho para el ritmo<br>de <em>Buenos Aires</em></h2>
+  <div class="feats">
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="feat-h">Precio sin vueltas</div>
+      </div>
+      <p class="feat-p">Tarifa fija antes de subir. Sin recargos por lluvia ni pico ocultos.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="feat-h">En 3 minutos</div>
+      </div>
+      <p class="feat-p">Red distribuida en toda la ciudad para tiempos reales en CABA y AMBA.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="feat-h">Viaje verificado</div>
+      </div>
+      <p class="feat-p">Conductores con licencia profesional y antecedentes validados.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <div class="feat-h">Pagá como quieras</div>
+      </div>
+      <p class="feat-p">Efectivo, tarjeta o Mercado Pago. Sin obligarte a ningún método.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="feat-h">Para empresas</div>
+      </div>
+      <p class="feat-p">Panel corporativo, remitos digitales y gestión de flota.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-top">
+        <div class="feat-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="feat-h">Más para el conductor</div>
+      </div>
+      <p class="feat-p">Comisiones menores que la competencia. La diferencia va al que maneja.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cenefa-mid" style="margin-bottom:2rem;">
+  <svg width="100%" height="28" viewBox="0 0 680 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="680" height="28" fill="#120E07"/>
+    <path d="M0 10 Q11 4 22 10 Q33 16 44 10 Q55 4 66 10 Q77 16 88 10 Q99 4 110 10 Q121 16 132 10 Q143 4 154 10 Q165 16 176 10 Q187 4 198 10 Q209 16 220 10 Q231 4 242 10 Q253 16 264 10 Q275 4 286 10 Q297 16 308 10 Q319 4 330 10 Q341 16 352 10 Q363 4 374 10 Q385 16 396 10 Q407 4 418 10 Q429 16 440 10 Q451 4 462 10 Q473 16 484 10 Q495 4 506 10 Q517 16 528 10 Q539 4 550 10 Q561 16 572 10 Q583 4 594 10 Q605 16 616 10 Q627 4 638 10 Q649 16 660 10 Q671 4 680 10" stroke="#D4A017" stroke-width="2" fill="none"/>
+    <path d="M0 18 Q11 24 22 18 Q33 12 44 18 Q55 24 66 18 Q77 12 88 18 Q99 24 110 18 Q121 12 132 18 Q143 24 154 18 Q165 12 176 18 Q187 24 198 18 Q209 12 220 18 Q231 24 242 18 Q253 12 264 18 Q275 24 286 18 Q297 12 308 18 Q319 24 330 18 Q341 12 352 18 Q363 24 374 18 Q385 12 396 18 Q407 24 418 18 Q429 12 440 18 Q451 24 462 18 Q473 12 484 18 Q495 24 506 18 Q517 12 528 18 Q539 24 550 18 Q561 12 572 18 Q583 24 594 18 Q605 12 616 18 Q627 24 638 18 Q649 12 660 18 Q671 24 680 18" stroke="#C8181E" stroke-width="1.5" fill="none"/>
+    <g fill="#D4A017">
+      <circle cx="22" cy="10" r="2.5"/><circle cx="66" cy="10" r="2.5"/><circle cx="110" cy="10" r="2.5"/>
+      <circle cx="154" cy="10" r="2.5"/><circle cx="198" cy="10" r="2.5"/><circle cx="242" cy="10" r="2.5"/>
+      <circle cx="286" cy="10" r="2.5"/><circle cx="330" cy="10" r="2.5"/><circle cx="374" cy="10" r="2.5"/>
+      <circle cx="418" cy="10" r="2.5"/><circle cx="462" cy="10" r="2.5"/><circle cx="506" cy="10" r="2.5"/>
+      <circle cx="550" cy="10" r="2.5"/><circle cx="594" cy="10" r="2.5"/><circle cx="638" cy="10" r="2.5"/>
+    </g>
+    <g fill="#1A6B2F">
+      <circle cx="44" cy="18" r="2"/><circle cx="88" cy="18" r="2"/><circle cx="132" cy="18" r="2"/>
+      <circle cx="176" cy="18" r="2"/><circle cx="220" cy="18" r="2"/><circle cx="264" cy="18" r="2"/>
+      <circle cx="308" cy="18" r="2"/><circle cx="352" cy="18" r="2"/><circle cx="396" cy="18" r="2"/>
+      <circle cx="440" cy="18" r="2"/><circle cx="484" cy="18" r="2"/><circle cx="528" cy="18" r="2"/>
+      <circle cx="572" cy="18" r="2"/><circle cx="616" cy="18" r="2"/><circle cx="660" cy="18" r="2"/>
+    </g>
+  </svg>
+</div>
+
+<div class="cond">
+  <div class="cond-l">
+    <div class="sec-head" style="margin-bottom:0.85rem;">
+      <div class="rombo"></div>
+      <span class="sec-tag">Para conductores</span>
+    </div>
+    <h3>Manejá cuando<br>querés. <em>Ganás más.</em></h3>
+    <p>Sin exclusividad ni costo de entrada. Sumarte toma 10 minutos — podés combinar con otras apps mientras te convenga más.</p>
+    <button class="btn-r">Quiero manejar</button>
+  </div>
+  <div class="cond-r">
+    <div class="earn-lbl">Ganancia estimada — jornada 8h</div>
+    <div class="earn-amt">$48.000</div>
+    <div class="earn-sub">promedio semanal · CABA</div>
+    <div class="bars">
+      <div class="bar" style="height:38%"></div>
+      <div class="bar md" style="height:52%"></div>
+      <div class="bar" style="height:65%"></div>
+      <div class="bar hi" style="height:88%"></div>
+      <div class="bar md" style="height:72%"></div>
+      <div class="bar" style="height:80%"></div>
+      <div class="bar hi" style="height:100%"></div>
+    </div>
+  </div>
+</div>
+
+<div class="cenefa-top" style="height:20px;">
+  <svg width="100%" height="20" viewBox="0 0 680 20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="680" height="20" fill="#1A6B2F"/>
+    <path d="M0 10 Q8.5 2 17 10 Q25.5 18 34 10 Q42.5 2 51 10 Q59.5 18 68 10 Q76.5 2 85 10 Q93.5 18 102 10 Q110.5 2 119 10 Q127.5 18 136 10 Q144.5 2 153 10 Q161.5 18 170 10 Q178.5 2 187 10 Q195.5 18 204 10 Q212.5 2 221 10 Q229.5 18 238 10 Q246.5 2 255 10 Q263.5 18 272 10 Q280.5 2 289 10 Q297.5 18 306 10 Q314.5 2 323 10 Q331.5 18 340 10 Q348.5 2 357 10 Q365.5 18 374 10 Q382.5 2 391 10 Q399.5 18 408 10 Q416.5 2 425 10 Q433.5 18 442 10 Q450.5 2 459 10 Q467.5 18 476 10 Q484.5 2 493 10 Q501.5 18 510 10 Q518.5 2 527 10 Q535.5 18 544 10 Q552.5 2 561 10 Q569.5 18 578 10 Q586.5 2 595 10 Q603.5 18 612 10 Q620.5 2 629 10 Q637.5 18 646 10 Q654.5 2 663 10 Q671.5 18 680 10" stroke="#FDF6E3" stroke-width="1" fill="none" opacity="0.5"/>
+    <g fill="#D4A017">
+      <rect x="32" y="8" width="4" height="4" transform="rotate(45 34 10)"/>
+      <rect x="100" y="8" width="4" height="4" transform="rotate(45 102 10)"/>
+      <rect x="168" y="8" width="4" height="4" transform="rotate(45 170 10)"/>
+      <rect x="236" y="8" width="4" height="4" transform="rotate(45 238 10)"/>
+      <rect x="304" y="8" width="4" height="4" transform="rotate(45 306 10)"/>
+      <rect x="372" y="8" width="4" height="4" transform="rotate(45 374 10)"/>
+      <rect x="440" y="8" width="4" height="4" transform="rotate(45 442 10)"/>
+      <rect x="508" y="8" width="4" height="4" transform="rotate(45 510 10)"/>
+      <rect x="576" y="8" width="4" height="4" transform="rotate(45 578 10)"/>
+      <rect x="644" y="8" width="4" height="4" transform="rotate(45 646 10)"/>
+    </g>
+  </svg>
+</div>
+
+<footer>
+  <div class="foot-brand">MiTraslado<span>· Buenos Aires</span></div>
+  <div class="foot-copy">© 2025 — todos los derechos reservados</div>
+  <div class="foot-links">
+    <a href="#">Términos</a>
+    <a href="#">Privacidad</a>
+    <a href="#">Soporte</a>
+  </div>
+</footer>
+
+</body>
+</html>

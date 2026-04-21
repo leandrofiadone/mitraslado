@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FileteBand from "../components/FileteBand.astro";
+import Hero from "../components/Hero.astro";
+import BenefitsVideo from "../components/BenefitsVideo.astro";
+import DriverSection from "../components/DriverSection.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <FileteBand variant="rojo" slot="top-band" />
+  <Hero />
+  <FileteBand variant="dorado" flip />
+  <BenefitsVideo />
+  <FileteBand variant="terracota" />
+  <DriverSection />
+  <FileteBand variant="dorado" />
+  <Contact />
+  <FileteBand variant="verde" />
+</Layout>

@@ -1,0 +1,190 @@
+---
+interface Benefit {
+  readonly title: string;
+  readonly body: string;
+  readonly icon: string;
+  readonly bg: string;
+  readonly stroke: string;
+}
+
+const benefits: readonly Benefit[] = [
+  {
+    title: "100% de rentabilidad",
+    body: "Generás y te lo quedás. Punto.",
+    icon: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+    bg: "bg-filete-rojo/40",
+    stroke: "stroke-filete-crema",
+  },
+  {
+    title: "Dinero en mano",
+    body: "El pasajero te paga a vos, en el acto. Sin intermediarios.",
+    icon: '<path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>',
+    bg: "bg-filete-verde/45",
+    stroke: "stroke-filete-crema",
+  },
+  {
+    title: "Libertad de cobro",
+    body: "Aceptá efectivo, Mercado Pago y tarjetas asociadas como prefieras.",
+    icon: '<rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/>',
+    bg: "bg-filete-dorado/40",
+    stroke: "stroke-filete-crema",
+  },
+  {
+    title: "Costo fijo mínimo",
+    body: 'Olvidate de las comisiones; pagás una suscripción fija "mínima" por el uso de la plataforma.',
+    icon: '<polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/>',
+    bg: "bg-filete-terracota/45",
+    stroke: "stroke-filete-crema",
+  },
+];
+---
+
+<section id="como-funciona" class="px-4 sm:px-6 md:px-8 py-10 md:py-14">
+  <div class="max-w-6xl mx-auto">
+    <div class="benefits-heading">
+      <div class="flex items-center gap-3 md:gap-4 mb-[0.85rem]">
+        <span class="w-[9px] h-[9px] bg-filete-rojo rotate-45 shrink-0"></span>
+        <span
+          class="text-[0.62rem] md:text-[0.65rem] tracking-[0.2em] uppercase text-filete-dorado font-semibold"
+          >Beneficios principales</span
+        >
+        <span class="flex-1 h-px bg-filete-dorado/25"></span>
+        <span class="w-[9px] h-[9px] bg-filete-verde rotate-45 shrink-0"></span>
+      </div>
+
+      <h2
+        class="font-display text-[1.75rem] sm:text-[1.95rem] md:text-[2.2rem] font-black leading-[1.1] tracking-[-0.01em] mb-3 md:mb-4"
+      >
+        Hecho para el <em class="italic text-filete-dorado">conductor.</em>
+      </h2>
+
+      <p
+        class="text-[0.9rem] md:text-[0.95rem] text-filete-crema/55 font-light max-w-[520px] mb-8 md:mb-10 leading-[1.55]"
+      >
+        Cuatro ventajas concretas para quien maneja con MiTraslado.
+      </p>
+    </div>
+
+    <div
+      class="flex flex-col md:flex-row md:items-stretch items-center gap-8 md:gap-10 lg:gap-12"
+    >
+      <div
+        class="relative w-[220px] sm:w-[230px] md:w-[240px] lg:w-[250px] shrink-0"
+        data-video-wrap
+      >
+        <span
+          class="absolute -top-px -left-px w-5 h-5 border-filete-dorado border-solid border-t-[3px] border-l-[3px] z-10 pointer-events-none"
+        ></span>
+        <span
+          class="absolute -top-px -right-px w-5 h-5 border-filete-dorado border-solid border-t-[3px] border-r-[3px] z-10 pointer-events-none"
+        ></span>
+        <span
+          class="absolute -bottom-px -left-px w-5 h-5 border-filete-dorado border-solid border-b-[3px] border-l-[3px] z-10 pointer-events-none"
+        ></span>
+        <span
+          class="absolute -bottom-px -right-px w-5 h-5 border-filete-dorado border-solid border-b-[3px] border-r-[3px] z-10 pointer-events-none"
+        ></span>
+
+        <video
+          class="block w-full aspect-[406/720] bg-filete-ng2 border-2 border-filete-dorado object-cover"
+          src="/video/mitraslado-pitch-360.mp4"
+          poster="/video/mitraslado-pitch-poster.jpg"
+          preload="metadata"
+          playsinline
+          data-video
+        >
+          Tu navegador no soporta video HTML5.
+        </video>
+
+        <button
+          type="button"
+          aria-label="Reproducir video"
+          data-video-play
+          class="absolute inset-0 flex items-center justify-center bg-filete-negro/20 hover:bg-filete-negro/10 transition-colors cursor-pointer group"
+        >
+          <span
+            class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-filete-rojo border-2 border-filete-dorado flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="w-5 h-5 md:w-6 md:h-6 fill-filete-crema translate-x-[2px]"
+            >
+              <path d="M8 5v14l11-7L8 5z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <ul
+        class="list-none p-0 m-0 w-full md:flex-1 flex flex-col gap-4 md:gap-0 md:border md:border-filete-dorado/30"
+      >
+        {
+          benefits.map((b) => (
+            <li class="flex items-stretch md:flex-1 md:border-b md:border-filete-dorado/20 last:md:border-b-0">
+              <div class="flex-1 min-w-0 flex flex-col justify-center px-4 md:px-5 lg:px-6 py-4 md:py-5">
+                <div class="font-display text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] font-bold text-filete-crema mb-1">
+                  {b.title}
+                </div>
+                <p class="text-[0.92rem] md:text-[0.97rem] lg:text-[1rem] text-filete-crema/65 leading-[1.55] font-light">
+                  {b.body}
+                </p>
+              </div>
+              <div class="hidden md:block w-px self-stretch bg-filete-dorado/25" aria-hidden="true" />
+              <div
+                class={`hidden md:flex w-14 lg:w-16 shrink-0 items-center justify-center ${b.bg}`}
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class={`w-6 h-6 lg:w-7 lg:h-7 ${b.stroke} fill-none`}
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  set:html={b.icon}
+                />
+              </div>
+              <span
+                class={`md:hidden shrink-0 w-10 h-10 flex items-center justify-center ${b.bg}`}
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class={`w-5 h-5 ${b.stroke} fill-none`}
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  set:html={b.icon}
+                />
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /*
+   * Hero uses flex justify-center with a pair of (text-540 + gap-56 + phone-248 = 844px).
+   * This offset matches the hero text's left edge at any lg+ viewport.
+   */
+  .benefits-heading {
+    @media (min-width: 1024px) {
+      padding-left: calc((100% - 844px) / 2);
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-video-wrap]").forEach((wrap) => {
+    const video = wrap.querySelector<HTMLVideoElement>("[data-video]");
+    const btn = wrap.querySelector<HTMLButtonElement>("[data-video-play]");
+    if (!video || !btn) return;
+    btn.addEventListener("click", () => {
+      video.setAttribute("controls", "");
+      void video.play();
+      btn.remove();
+    });
+  });
+</script>
