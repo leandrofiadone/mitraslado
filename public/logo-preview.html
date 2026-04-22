@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiTraslado — Logo Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #120E07;
+    color: #FDF6E3;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    padding: 48px 32px;
+    min-height: 100vh;
+  }
+  .header { margin-bottom: 48px; }
+  .eyebrow {
+    color: #D4A017;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .subtitle { color: #FDF6E394; font-size: 0.85rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .card {
+    background: #1C1609;
+    border: 1.5px solid #D4A01730;
+    padding: 36px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .card-label {
+    color: #D4A017;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 28px;
+    width: 100%;
+  }
+  .mark-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    min-height: 120px;
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #D4A01725;
+    margin-bottom: 20px;
+  }
+  .nav-label {
+    color: #FDF6E950;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+  .nav-sample {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+  }
+  .wm-mi {
+    font-family: 'Playfair Display', serif;
+    color: #D4A017;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .wm-main {
+    font-family: 'Playfair Display', serif;
+    color: #FDF6E3;
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .wm-main span { color: #D4A017; }
+
+  .recommended {
+    border-color: #D4A017;
+    position: relative;
+  }
+  .recommended::before {
+    content: "RECOMENDADO";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: #D4A017;
+    color: #120E07;
+    font-size: 0.52rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    padding: 3px 8px;
+  }
+  .note {
+    color: #FDF6E950;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    max-width: 680px;
+  }
+  .note strong { color: #D4A017; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="eyebrow">MiTraslado — propuestas de logo</div>
+    <h1>Tres conceptos.<br><em style="font-style:italic; color:#D4A017;">Todos porteños.</em></h1>
+    <p class="subtitle">Sin gradiente neón. Paleta del sitio: dorado, rojo, crema sobre negro.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- A: Geometric M + rombo pin -->
+    <div class="card recommended">
+      <div class="card-label">A — M geométrica + pin rombo</div>
+      <div class="mark-area">
+        <svg viewBox="0 0 60 72" width="100" height="120" xmlns="http://www.w3.org/2000/svg">
+          <!-- M shape: angular, geometric, dorado -->
+          <polyline
+            points="5,66 5,20 30,44 55,20 55,66"
+            fill="none"
+            stroke="#D4A017"
+            stroke-width="5.5"
+            stroke-linecap="square"
+            stroke-linejoin="miter"
+          />
+          <!-- Rombo pin at center top — rojo -->
+          <polygon points="30,4 38,12 30,20 22,12" fill="#C8181E"/>
+          <!-- Small crema dot inside rombo -->
+          <circle cx="30" cy="12" r="2.2" fill="#FDF6E3"/>
+        </svg>
+      </div>
+      <div class="divider"></div>
+      <div class="nav-label">en el nav:</div>
+      <div class="nav-sample">
+        <svg viewBox="0 0 60 72" width="22" height="26" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="5,66 5,20 30,44 55,20 55,66" fill="none" stroke="#D4A017" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+          <polygon points="30,4 38,12 30,20 22,12" fill="#C8181E"/>
+          <circle cx="30" cy="12" r="2.2" fill="#FDF6E3"/>
+        </svg>
+        <div class="wordmark">
+          <span class="wm-mi">Mi</span>
+          <span class="wm-main">Traslado<span>.</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B: M inside diamond frame -->
+    <div class="card">
+      <div class="card-label">B — M en marco rombo</div>
+      <div class="mark-area">
+        <svg viewBox="0 0 84 84" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
+          <!-- Diamond frame dorado -->
+          <polygon
+            points="42,4 80,42 42,80 4,42"
+            fill="none"
+            stroke="#D4A017"
+            stroke-width="2.5"
+          />
+          <!-- M inside: crema -->
+          <polyline
+            points="19,60 19,30 42,50 65,30 65,60"
+            fill="none"
+            stroke="#FDF6E3"
+            stroke-width="5"
+            stroke-linecap="square"
+            stroke-linejoin="miter"
+          />
+          <!-- Red accent — top diamond point -->
+          <polygon points="42,4 48,10 42,16 36,10" fill="#C8181E"/>
+          <!-- Green accent — bottom diamond point -->
+          <polygon points="42,68 47,73 42,78 37,73" fill="#1A6B2F"/>
+        </svg>
+      </div>
+      <div class="divider"></div>
+      <div class="nav-label">en el nav:</div>
+      <div class="nav-sample">
+        <svg viewBox="0 0 84 84" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="42,4 80,42 42,80 4,42" fill="none" stroke="#D4A017" stroke-width="2.5"/>
+          <polyline points="19,60 19,30 42,50 65,30 65,60" fill="none" stroke="#FDF6E3" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+          <polygon points="42,4 48,10 42,16 36,10" fill="#C8181E"/>
+          <polygon points="42,68 47,73 42,78 37,73" fill="#1A6B2F"/>
+        </svg>
+        <div class="wordmark">
+          <span class="wm-mi">Mi</span>
+          <span class="wm-main">Traslado<span>.</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- C: Only wordmark, no mark (current) -->
+    <div class="card">
+      <div class="card-label">C — Solo tipografía (actual)</div>
+      <div class="mark-area" style="min-height:120px; justify-content:center; flex-direction:column; gap:4px;">
+        <div class="wordmark" style="align-items:flex-start;">
+          <span style="font-family:'Playfair Display',serif; color:#D4A017; font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:400; line-height:1; margin-bottom:3px;">Mi</span>
+          <span style="font-family:'Playfair Display',serif; color:#FDF6E3; font-size:2.2rem; font-weight:900; line-height:1; letter-spacing:-0.01em;">Traslado<span style="color:#D4A017;">.</span></span>
+        </div>
+        <!-- Fileteado accent bars -->
+        <div style="display:flex; gap:3px; margin-top:5px;">
+          <span style="height:2px;width:28px;background:#C8181E;display:block;"></span>
+          <span style="height:2px;width:10px;background:#D4A017;display:block;"></span>
+          <span style="height:2px;width:5px;background:#1A6B2F;display:block;"></span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="nav-label">en el nav (igual al actual):</div>
+      <div class="nav-sample">
+        <div class="wordmark">
+          <span class="wm-mi">Mi</span>
+          <span class="wm-main">Traslado<span>.</span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note">
+    <strong>A</strong> — más versátil: funciona como favicon, ícono de app, badge. La M angular + pin rombo habla de "destino" sin necesitar el texto. <br>
+    <strong>B</strong> — más ceremonioso, muy consistente con el marco de rombos del sitio. Complejo a tamaños pequeños. <br>
+    <strong>C</strong> — lo actual funciona bien para landing. Le falta marca cuando necesitás el ícono solo (favicon, app store, etc.).
+  </p>
+
+</body>
+</html>
