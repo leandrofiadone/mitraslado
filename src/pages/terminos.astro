@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FileteBand from "../components/FileteBand.astro";
+
+interface Section {
+  readonly num: string;
+  readonly title: string;
+  readonly body: readonly string[];
+}
+
+const sections: readonly Section[] = [
+  {
+    num: "01",
+    title: "Declaración jurada de veracidad",
+    body: [
+      "Al completar el registro en la App móvil, el usuario (Conductor o Pasajero) declara bajo JURAMENTO que toda la información y documentación cargada (DNI, Licencia de Conducir, Cédula del Vehículo, Póliza de Seguro, Fotos y Datos Personales) es real, veraz y se encuentra vigente. Cualquier falsedad, omisión o alteración de los datos es responsabilidad penal y civil exclusiva del usuario, facultando a MiTraslado a la baja inmediata de la cuenta y a la colaboración activa con las autoridades policiales o judiciales pertinentes.",
+    ],
+  },
+  {
+    num: "02",
+    title: "Naturaleza del servicio: software, no transporte",
+    body: [
+      'MiTraslado es una plataforma tecnológica independiente (SaaS). NO es una empresa de transporte, ni agencia de remises, ni plataforma de despacho de viajes, ni empleador. El desarrollador provee una herramienta de software que conecta a dos partes independientes. MiTraslado no posee flota de vehículos, no realiza inspecciones físicas y no mantiene relación de dependencia ni subordinación con los conductores. El uso de la plataforma constituye un "Alquiler de Licencia de Uso" mediante suscripción fija.',
+    ],
+  },
+  {
+    num: "03",
+    title: "Intermediación, pagos y comisión 0%",
+    body: [
+      "0% COMISIÓN: A diferencia de otras plataformas, MiTraslado no percibe ningún porcentaje sobre el valor de los viajes realizados.",
+      "PAGO DIRECTO: El 100% del dinero del viaje es una transacción privada entre el Pasajero y el Conductor. El pasajero paga directamente al conductor en efectivo, Mercado Pago o transferencia. El desarrollador no interviene, no retiene dinero, ni garantiza el cobro de los viajes.",
+      "SUSCRIPCIÓN SEMANAL: El conductor abona un canon fijo semanal por el derecho de uso del software. El incumplimiento de este pago generará una deuda administrativa y la suspensión automática de la cuenta hasta su regularización.",
+    ],
+  },
+  {
+    num: "04",
+    title: "Reglas de convivencia y limitaciones",
+    body: [
+      "Para garantizar un entorno seguro y profesional, se establecen las siguientes normas de cumplimiento obligatorio:",
+      "CAPACIDAD DEL VEHÍCULO: Queda prohibido exceder el límite de pasajeros permitidos por el fabricante. El conductor debe rechazar viajes que superen la capacidad de seguridad del vehículo.",
+      "HIGIENE Y SALUD: Está estrictamente prohibido fumar (incluye vapeadores) o consumir alimentos/bebidas dentro del vehículo sin autorización expresa del conductor.",
+      "SUSTANCIAS PROHIBIDAS: Tolerancia cero al uso de la plataforma bajo los efectos del alcohol, drogas o cualquier sustancia ilegal. El incumplimiento derivará en la expulsión permanente y denuncia ante las autoridades.",
+      "MASCOTAS Y CARGA: El traslado de mascotas o equipaje voluminoso es opcional y debe ser consultado y aceptado previamente por el conductor a través del chat de la app.",
+    ],
+  },
+  {
+    num: "05",
+    title: "Cancelaciones y cambios de destino",
+    body: [
+      "MiTraslado no gestiona flujos de cobro automatizados ni penalidades integradas por cancelaciones.",
+      "CANCELACIONES: Si un pasajero o conductor cancela el viaje (antes o durante el trayecto), la resolución del conflicto y el eventual pago por el tramo recorrido es responsabilidad exclusiva de las partes. La app no dispone de sistema de cobro por cancelación.",
+      "CAMBIOS DE RUTA: Si el pasajero solicita cambiar el destino una vez iniciado el viaje, queda bajo criterio del conductor aceptar o no. El sistema reflejará únicamente la finalización del viaje original. Cualquier ajuste en el precio debe ser acordado de palabra y abonado directamente al conductor.",
+    ],
+  },
+  {
+    num: "06",
+    title: "Siniestros y responsabilidad civil",
+    body: [
+      "En caso de choque, accidente o siniestro vial, el desarrollador de MiTraslado queda totalmente exento de responsabilidad civil, penal o laboral.",
+      "El conductor es el único responsable de respetar las normas de tránsito y contar con el seguro vigente (terceros/pasajeros) y VTV.",
+      "MiTraslado no cubre daños materiales, lesiones ni lucro cesante derivados de la actividad privada de transporte entre los usuarios.",
+    ],
+  },
+  {
+    num: "07",
+    title: "Moderación y foro de la comunidad",
+    body: [
+      "La plataforma cuenta con un Foro para el debate de precios y mejoras.",
+      "REPORTES: Los conductores podrán reportar conductas conflictivas de pasajeros (violencia, falta de pago, suciedad, etc.).",
+      "DERECHO DE ADMISIÓN: MiTraslado utilizará la información del foro y los reportes como prueba para sancionar o dar de baja permanentemente a usuarios que afecten la seguridad o armonía de la comunidad.",
+    ],
+  },
+  {
+    num: "08",
+    title: "Privacidad y trazabilidad",
+    body: [
+      "Los datos personales se resguardan con fines de seguridad ciudadana y trazabilidad. MiTraslado mantiene registros de GPS y logs de actividad para cooperar con las autoridades ante cualquier incidente legal. Los datos no serán cedidos a terceros con fines comerciales.",
+    ],
+  },
+  {
+    num: "09",
+    title: "Disponibilidad de servicio y actualizaciones",
+    body: [
+      "Como toda plataforma basada en software y conectividad a internet, el servicio puede verse afectado por interrupciones temporales.",
+      "MANTENIMIENTO: MiTraslado se reserva el derecho de realizar tareas de mantenimiento, actualizaciones de seguridad, parches y mejoras que podrían implicar cortes de servicio. En caso de ser programados, serán avisados por los canales oficiales.",
+      "FALLAS TÉCNICAS: Ante caídas inesperadas del servidor o errores de código, se activará un proceso de restauración en el menor tiempo posible.",
+      'EXCLUSIÓN DE GARANTÍAS Y SLA: MiTraslado se proporciona "tal cual" (as is). La plataforma no garantiza niveles de servicio (SLA), tiempos mínimos de respuesta, ni disponibilidad ininterrumpida del sistema. No obstante, MiTraslado se compromete a realizar sus máximos esfuerzos técnicos y humanos para garantizar la continuidad del servicio, con el objetivo de minimizar los tiempos de inactividad y restablecer la plataforma a la brevedad posible.',
+      "EXENCIÓN DE LUCRO CESANTE: El desarrollador no se responsabiliza por la pérdida de ingresos, viajes o tiempo derivados de la indisponibilidad temporal del servicio, fallas en la red de telefonía móvil de los usuarios o errores técnicos de la plataforma.",
+    ],
+  },
+  {
+    num: "10",
+    title: "Requerimientos de hardware y conectividad",
+    body: [
+      "El correcto funcionamiento de la App depende directamente del hardware y la conectividad del usuario (Conductor o Pasajero).",
+      "ESTADO DEL MÓVIL: Es responsabilidad del usuario contar con un dispositivo móvil compatible, con batería suficiente y en buen estado de funcionamiento.",
+      "PLAN DE DATOS: El usuario debe garantizar la disponibilidad de un plan de datos móviles activo. MiTraslado no se responsabiliza por la pérdida de conexión GPS o datos derivada de problemas con la prestataria de telefonía móvil del usuario.",
+      "CANALES DE SOPORTE: Ante cualquier falla persistente, el usuario podrá consultar el estado del servicio o reportar errores a través de los canales oficiales: mitraslado.com, el chat de soporte central o el correo electrónico oficial.",
+    ],
+  },
+];
+
+function formatParagraph(text: string): { label: string | null; body: string } {
+  const match = text.match(/^([A-ZÁÉÍÓÚÑ0-9% ]{3,}):\s*(.*)$/);
+  if (match && match[1].length < 60) {
+    return { label: match[1], body: match[2] };
+  }
+  return { label: null, body: text };
+}
+---
+
+<Layout title="Términos y condiciones — MiTraslado">
+  <FileteBand variant="rojo" slot="top-band" />
+
+  <section class="px-4 sm:px-6 md:px-8 py-10 md:py-14">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 md:gap-4 mb-[0.85rem]">
+        <span class="w-[9px] h-[9px] bg-filete-rojo rotate-45 shrink-0"></span>
+        <span
+          class="text-[0.62rem] md:text-[0.65rem] tracking-[0.2em] uppercase text-filete-dorado font-semibold"
+          >Legal</span
+        >
+      </div>
+
+      <h1
+        class="font-display text-[1.9rem] sm:text-[2.2rem] md:text-[2.5rem] font-black leading-[1.1] tracking-[-0.01em] mb-3"
+      >
+        Términos, condiciones y <em class="italic text-filete-dorado"
+          >declaración jurada.</em
+        >
+      </h1>
+
+      <p class="text-[0.78rem] text-filete-crema/40 tracking-[0.08em] uppercase mb-10 md:mb-14">
+        MiTraslado.com · Vigente 2026
+      </p>
+
+      <div class="flex flex-col gap-10 md:gap-12">
+        {
+          sections.map((s) => (
+            <article id={`seccion-${s.num}`} class="scroll-mt-20">
+              <header class="flex items-baseline gap-4 mb-4 md:mb-5 pb-3 border-b border-filete-dorado/25">
+                <span class="font-display text-[1.6rem] md:text-[1.9rem] font-black text-filete-dorado leading-none shrink-0">
+                  {s.num}
+                </span>
+                <h2 class="font-display text-[1.05rem] md:text-[1.2rem] font-bold text-filete-crema uppercase tracking-[0.03em] leading-[1.3]">
+                  {s.title}
+                </h2>
+              </header>
+              <div class="flex flex-col gap-3 md:gap-4 pl-0 md:pl-10">
+                {s.body.map((raw) => {
+                  const { label, body } = formatParagraph(raw);
+                  return (
+                    <p class="text-[0.92rem] md:text-[0.95rem] text-filete-crema/70 leading-[1.75] font-light">
+                      {label && (
+                        <span class="font-semibold text-filete-dorado tracking-[0.04em]">
+                          {label}:{" "}
+                        </span>
+                      )}
+                      {body}
+                    </p>
+                  );
+                })}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <FileteBand variant="verde" />
+</Layout>

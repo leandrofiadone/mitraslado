@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FileteBand from "../components/FileteBand.astro";
+
+interface Step {
+  readonly num: string;
+  readonly title: string;
+  readonly body: string;
+}
+
+const steps: readonly Step[] = [
+  {
+    num: "01",
+    title: "Registro y validación",
+    body: "Sumate completando tu perfil de conductor. Verificamos tu documentación y la del vehículo para garantizar un servicio profesional y seguro en Buenos Aires y AMBA.",
+  },
+  {
+    num: "02",
+    title: "Suscripción inteligente",
+    body: "Olvidate de comisiones abusivas por viaje. Activás una suscripción mensual fija y transparente que te permite planificar tus gastos sin sorpresas a fin de mes.",
+  },
+  {
+    num: "03",
+    title: "Gestión de viajes",
+    body: "Recibís alertas en tiempo real de pasajeros cercanos. El sistema te indica las zonas de mayor demanda para maximizar tu tiempo al volante.",
+  },
+  {
+    num: "04",
+    title: "Pago directo y neto",
+    body: "El pasajero te abona directo, en efectivo o Mercado Pago. Sin intermediarios ni retenciones: el 100% del valor del viaje es tuyo al instante.",
+  },
+];
+
+interface SecurityPoint {
+  readonly title: string;
+  readonly body: string;
+}
+
+const security: readonly SecurityPoint[] = [
+  {
+    title: "Conductores verificados en persona",
+    body: "100% validación presencial antes de activar la cuenta.",
+  },
+  {
+    title: "Documentación obligatoria",
+    body: "Antecedentes penales, licencia profesional y seguro al día.",
+  },
+  {
+    title: "Foro de alertas activo",
+    body: "Reportes y avisos de seguridad de la comunidad.",
+  },
+];
+---
+
+<Layout title="Cómo funciona — MiTraslado">
+  <FileteBand variant="rojo" slot="top-band" />
+
+  <section class="px-4 sm:px-6 md:px-8 py-10 md:py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 md:gap-4 mb-[0.85rem]">
+        <span class="w-[9px] h-[9px] bg-filete-rojo rotate-45 shrink-0"></span>
+        <span
+          class="text-[0.62rem] md:text-[0.65rem] tracking-[0.2em] uppercase text-filete-dorado font-semibold"
+          >Guía de funcionamiento</span
+        >
+        <span class="flex-1 h-px bg-filete-dorado/25"></span>
+        <span class="w-[9px] h-[9px] bg-filete-verde rotate-45 shrink-0"></span>
+      </div>
+
+      <h1
+        class="font-display text-[2rem] sm:text-[2.4rem] md:text-[2.8rem] font-black leading-[1.1] tracking-[-0.01em] mb-4 md:mb-5"
+      >
+        Así funciona. <em class="italic text-filete-dorado">Paso a paso.</em>
+      </h1>
+
+      <p
+        class="text-[0.95rem] text-filete-crema/55 leading-[1.65] max-w-[560px] mb-10 md:mb-12 font-light"
+      >
+        Cuatro pasos para empezar a manejar con MiTraslado en CABA y AMBA.
+      </p>
+
+      <ol
+        class="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-2 gap-px bg-filete-dorado/25 border border-filete-dorado/30"
+      >
+        {
+          steps.map((s) => (
+            <li class="bg-filete-ng2 p-6 md:p-7 lg:p-8">
+              <div class="font-display text-[2.4rem] md:text-[2.8rem] font-black text-filete-dorado/90 leading-none mb-3 tracking-[-0.02em]">
+                {s.num}
+              </div>
+              <h3 class="font-display text-[1.1rem] md:text-[1.2rem] font-bold text-filete-crema mb-2">
+                {s.title}
+              </h3>
+              <p class="text-[0.9rem] text-filete-crema/60 leading-[1.65] font-light">
+                {s.body}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <FileteBand variant="dorado" flip />
+
+  <section class="px-4 sm:px-6 md:px-8 py-10 md:py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 md:gap-4 mb-[0.85rem]">
+        <span class="w-[9px] h-[9px] bg-filete-verde rotate-45 shrink-0"></span>
+        <span
+          class="text-[0.62rem] md:text-[0.65rem] tracking-[0.2em] uppercase text-filete-dorado font-semibold"
+          >Seguridad</span
+        >
+      </div>
+
+      <h2
+        class="font-display text-[1.75rem] sm:text-[2rem] md:text-[2.2rem] font-black leading-[1.1] tracking-[-0.01em] mb-8 md:mb-10"
+      >
+        Sin <em class="italic text-filete-dorado">compromisos.</em>
+      </h2>
+
+      <ul
+        class="list-none m-0 p-0 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6"
+      >
+        {
+          security.map((s) => (
+            <li class="border-l-2 border-filete-dorado/60 pl-4 md:pl-5">
+              <h3 class="font-display text-[1rem] md:text-[1.05rem] font-bold text-filete-crema mb-1.5">
+                {s.title}
+              </h3>
+              <p class="text-[0.88rem] text-filete-crema/60 leading-[1.6] font-light">
+                {s.body}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-10 md:mt-12">
+        <a
+          href="/asociarse"
+          class="inline-flex items-center gap-2 text-filete-dorado no-underline text-[0.82rem] font-semibold tracking-[0.08em] uppercase hover:text-filete-crema"
+        >
+          Ver requisitos
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FileteBand variant="verde" />
+</Layout>
